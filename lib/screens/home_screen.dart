@@ -3,7 +3,6 @@ import 'package:nazad_v_piter/models/place.dart';
 import 'package:nazad_v_piter/data/places_data.dart';
 import 'package:nazad_v_piter/screens/detail_screen.dart';
 import 'package:nazad_v_piter/screens/category_screen.dart';
-import 'package:nazad_v_piter/screens/tag_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -183,58 +182,6 @@ class HomeScreen extends StatelessWidget {
               {'title': 'ПРИРОДА', 'count': 28},
             ],
           ),
-          
-          const Divider(),
-          
-          // Раздел: ТЕГИ
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  'ТЕГИ:',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(height: 12),
-                Wrap(
-                  spacing: 8,
-                  runSpacing: 8,
-                  children: [
-                    _buildTagChip(context, 'АЛЕКСАНДР I', 20),
-                    _buildTagChip(context, 'АЛЕКСАНДР II', 14),
-                    _buildTagChip(context, 'АЛЕКСАНДР III', 12),
-                    _buildTagChip(context, 'АЛЕКСАНДР НЕВСКИЙ', 2),
-                    _buildTagChip(context, 'АЛЕКСАНДРА ФЕДОРОВНА', 11),
-                    _buildTagChip(context, 'АМПИР', 4),
-                    _buildTagChip(context, 'АННА ИОАННОВНА', 10),
-                    _buildTagChip(context, 'АРИНА РОДИОНОВНА', 2),
-                    _buildTagChip(context, 'АХМАТОВА', 16),
-                    _buildTagChip(context, 'БАЛАКИРЕВ', 4),
-                  ],
-                ),
-                const SizedBox(height: 12),
-                Center(
-                  child: TextButton.icon(
-                    onPressed: () {
-                      // Здесь будет переход на экран со всеми тегами
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const TagScreen(title: 'Все теги'),
-                        ),
-                      );
-                    },
-                    icon: const Icon(Icons.add),
-                    label: const Text('ПОКАЗАТЬ ВСЕ ТЕГИ'),
-                  ),
-                ),
-              ],
-            ),
-          ),
         ],
       ),
     );
@@ -269,7 +216,7 @@ class HomeScreen extends StatelessWidget {
             ),
             dense: true,
             onTap: () {
-              Navigator.pop(context); // Закрываем drawer
+              Navigator.pop(context);
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -283,23 +230,6 @@ class HomeScreen extends StatelessWidget {
           )).toList(),
         ],
       ),
-    );
-  }
-
-  Widget _buildTagChip(BuildContext context, String tag, int count) {
-    return ActionChip(
-      label: Text('$tag ($count)'),
-      onPressed: () {
-        Navigator.pop(context); // Закрываем drawer
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => TagScreen(title: tag),
-          ),
-        );
-      },
-      backgroundColor: Colors.grey[200],
-      labelStyle: const TextStyle(fontSize: 12),
     );
   }
 }

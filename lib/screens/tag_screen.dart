@@ -13,8 +13,6 @@ class TagScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // В реальном приложении здесь должна быть фильтрация мест по тегу
-    // Пока показываем все места как пример
     return Scaffold(
       appBar: AppBar(
         title: Text(

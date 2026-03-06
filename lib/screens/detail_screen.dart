@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:nazad_v_piter/models/place.dart';
+import 'package:nazad_v_piter/data/place_details.dart'; 
 
 class DetailScreen extends StatelessWidget {
   final Place place;
@@ -59,9 +60,8 @@ class DetailScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  // Описание
                   Text(
-                    place.description,
+                    placeDetails[place.id] ?? 'Описание скоро появится...',
                     style: const TextStyle(fontSize: 16, height: 1.5),
                   ),
                   const SizedBox(height: 24),

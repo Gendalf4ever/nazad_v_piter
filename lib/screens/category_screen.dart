@@ -15,8 +15,6 @@ class CategoryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // В реальном приложении здесь должна быть фильтрация мест по категории
-    // Пока показываем все места как пример
     return Scaffold(
       appBar: AppBar(
         title: Text(

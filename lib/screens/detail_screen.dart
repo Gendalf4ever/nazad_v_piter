@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:nazad_v_piter/models/place.dart';
-import 'package:nazad_v_piter/data/place_details.dart'; 
+import 'package:nazad_v_piter/data/place_details.dart';
 
 class DetailScreen extends StatelessWidget {
   final Place place;
@@ -60,10 +60,8 @@ class DetailScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  Text(
-                    placeDetails[place.id] ?? 'Описание скоро появится...',
-                    style: const TextStyle(fontSize: 16, height: 1.5),
-                  ),
+                  // Подробное описание с жирным текстом
+                  _buildRichText(placeDetails[place.id] ?? 'Описание скоро появится...'),
                   const SizedBox(height: 24),
                   // Кнопка "Открыть на карте"
                   Center(
@@ -87,6 +85,54 @@ class DetailScreen extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildRichText(String text) {
+    final RegExp regex = RegExp(r'\*\*\*(.*?)\*\*\*');
+    final List<TextSpan> spans = [];
+    int currentIndex = 0;
+    final matches = regex.allMatches(text).toList();
+
+    for (final match in matches) {
+      if (match.start > currentIndex) {
+        spans.add(
+          TextSpan(
+            text: text.substring(currentIndex, match.start),
+            style: const TextStyle(fontSize: 16, height: 1.5),
+          ),
+        );
+      }
+
+      //жирный текст 
+      spans.add(
+        TextSpan(
+          text: match.group(1), // Текст внутри *** ***
+          style: const TextStyle(
+            fontSize: 16,
+            height: 1.5,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      );
+
+      currentIndex = match.end;
+    }
+
+    if (currentIndex < text.length) {
+      spans.add(
+        TextSpan(
+          text: text.substring(currentIndex),
+          style: const TextStyle(fontSize: 16, height: 1.5),
+        ),
+      );
+    }
+
+    return RichText(
+      text: TextSpan(
+        children: spans,
+        style: const TextStyle(fontSize: 16, color: Colors.black),
       ),
     );
   }

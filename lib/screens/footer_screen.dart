@@ -15,14 +15,14 @@ class FooterScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(12), 
-      color: Colors.grey[900],
+      color: Colors.yellow,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
             'Nazadvpiter.ru - путеводитель по Петербургу',
             style: TextStyle(
-              color: Colors.white,
+              color: Colors.black,
               fontSize: 14,
               fontWeight: FontWeight.bold,
             ),
@@ -31,7 +31,7 @@ class FooterScreen extends StatelessWidget {
           const Text(
             'Nazadvpiter.ru это путеводитель по интересным местам Петербурга',
             style: TextStyle(
-              color: Colors.grey,
+              color: Colors.black,
               fontSize: 12, 
             ),
           ),
@@ -50,7 +50,7 @@ class FooterScreen extends StatelessWidget {
           const Text(
             'Посмотрите подборку интересных фотографий по Петербургу',
             style: TextStyle(
-              color: Colors.grey,
+              color: Colors.black,
               fontSize: 12,
             ),
           ),
@@ -67,7 +67,7 @@ class FooterScreen extends StatelessWidget {
                     const Text(
                       'Маршруты по Петербургу и контакты',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
                       ),
@@ -98,7 +98,7 @@ class FooterScreen extends StatelessWidget {
                     const Text(
                       'О проекте и его авторе',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
                       ),
@@ -131,7 +131,7 @@ class FooterScreen extends StatelessWidget {
                     const Text(
                       'Старинные карты Петербурга',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.black,
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
                       ),
@@ -157,7 +157,7 @@ class FooterScreen extends StatelessWidget {
               '© 2024 Назад в Питер',
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: Colors.grey,
+                color: Colors.black,
                 fontSize: 10,
               ),
             ),
@@ -183,7 +183,7 @@ class FooterScreen extends StatelessWidget {
             Text(
               label,
               style: const TextStyle(
-                color: Colors.grey,
+                color: Colors.black,
                 fontSize: 12, 
               ),
             ),

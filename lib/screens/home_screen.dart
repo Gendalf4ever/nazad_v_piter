@@ -1,20 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:nazad_v_piter/models/place.dart';
 import 'package:nazad_v_piter/data/places_data.dart';
 import 'package:nazad_v_piter/screens/detail_screen.dart';
 import 'package:nazad_v_piter/screens/category_screen.dart';
 import 'package:nazad_v_piter/screens/footer_screen.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
-  Future<void> _launchUrl(String url) async {
-    final Uri uri = Uri.parse(url);
-    if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
-      throw Exception('Could not launch $url');
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -111,7 +103,7 @@ class HomeScreen extends StatelessWidget {
               },
             ),
           ),
-          // Нижнее меню (footer) - уменьшенный размер
+          // Нижнее меню 
           const SizedBox(height: 16),
           const FooterScreen(),
           const SizedBox(height: 8),
@@ -153,7 +145,7 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           
-          // Раздел: История и притяжение Петербурга
+          //История и притяжение Петербурга
           _buildCategorySection(
             context: context,
             title: 'ИСТОРИЯ И ПРИТЯЖЕНИЕ ПЕТЕРБУРГА',
@@ -167,7 +159,7 @@ class HomeScreen extends StatelessWidget {
           
           const Divider(),
           
-          // Раздел: Архитектура и стиль Петербурга
+          //Архитектура и стиль Петербурга
           _buildCategorySection(
             context: context,
             title: 'АРХИТЕКТУРА И СТИЛЬ ПЕТЕРБУРГА',
@@ -181,7 +173,7 @@ class HomeScreen extends StatelessWidget {
           
           const Divider(),
           
-          // Раздел: Культура и развлечения Петербурга
+          // Культура и развлечения Петербурга
           _buildCategorySection(
             context: context,
             title: 'КУЛЬТУРА И РАЗВЛЕЧЕНИЯ ПЕТЕРБУРГА',
@@ -247,7 +239,7 @@ class HomeScreen extends StatelessWidget {
                 ),
               );
             },
-          )).toList(),
+          ))
         ],
       ),
     );
